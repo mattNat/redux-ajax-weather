@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_KEY = '593b1d06d15a521411365989117e8abf';
-const ROOT_URL = `http://samples.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
 
 // purpose: keep action type consistent between action creators and reducers
 export const FETCH_WEATHER = 'FETCH_WEATHER';

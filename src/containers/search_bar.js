@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from '../actions/index';
 
 /*
 set controlled state
 */
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props)
 
@@ -11,6 +14,7 @@ export default class SearchBar extends Component {
 
     // this (which is an instance of search bar)
     this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   // event object is vanilla js thing
@@ -24,6 +28,9 @@ export default class SearchBar extends Component {
     event.preventDefault();
 
     // We need to go and fetch weather data
+    this.props.fetchWeather(this.state.term);
+    // clear search input, will pass it to value in input
+    this.setState({ term: '' });
   }
 
   render() {
@@ -42,3 +49,11 @@ export default class SearchBar extends Component {
     )
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+// pass null, redux does not need state here
+// gives access to this.props.fetchWeather
+export default connect(null, mapDispatchToProps)(SearchBar);

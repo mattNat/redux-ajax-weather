@@ -1,3 +1,5 @@
+// require('dotenv').config()
+
 import React, { Component } from 'react';
 
 import SearchBar from '../containers/search_bar';

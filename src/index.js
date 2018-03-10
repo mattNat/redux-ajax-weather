@@ -8,6 +8,9 @@ import App from './components/app';
 import reducers from './reducers';
 
 // apply middleware on 2nd paren
+// middleware
+// doorman/bouncer stop and check action
+// intercept actionss
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(

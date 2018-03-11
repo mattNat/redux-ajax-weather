@@ -7,7 +7,7 @@ function average(data) {
 }
 
 export default (props) => {
-  console.log('props is:', props);
+  // console.log('props is:', props);
   
   return (
     <div>

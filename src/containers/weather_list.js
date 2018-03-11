@@ -6,17 +6,22 @@ import Chart from '../components/chart';
 class WeatherList extends Component {
   renderWeather(cityData) {
     const name = cityData.city.name;
-    const tempsF = cityData.list.map(weather => weather.main.temp*9/5 - 459.67);
-    const tempsK = cityData.list.map(weather => weather.main.temp);
+    const tempsF = cityData.list.map(weather => weather.main.temp*9/5 - 459.67); // F
+    const tempsK = cityData.list.map(weather => weather.main.temp); // K
+    const pressures = cityData.list.map(weather => weather.main.pressure); // hPa
+    const humidities = cityData.list.map(weather => weather.main.humidity); // % 
     
     // console.log('In F:', tempsF, 'In K:', tempsK);
+    // console.log('Pressure:', pressures);
+    // console.log('humidities:', humidities);
+    
 
     return (
       <tr key={name}>
         <td>{name}</td>
-        <td>
-          <Chart data={tempsF} color='orange' />
-        </td>
+        <td><Chart data={tempsF} color='orange' units='F' /></td>
+        <td><Chart data={pressures} color='green' units='hPa' /></td>
+        <td><Chart data={humidities} color='black' units='%' /></td>                    
       </tr>
     )
   }
@@ -27,9 +32,9 @@ class WeatherList extends Component {
         <thead>
           <tr>
             <th>City</th>
-            <th>Temperature</th>
-            <th>Pressure</th>
-            <th>Humidity</th>
+            <th>Temperature (F)</th>
+            <th>Pressure (hPa)</th>
+            <th>Humidity (%)</th>
           </tr>
         </thead>
         <tbody>

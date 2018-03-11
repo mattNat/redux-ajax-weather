@@ -11,3 +11,10 @@ td, th {
 svg {
   height: 150px;
 }
+
+/* for google maps */
+/* find first td and also find the first td and chils div */
+td:first-of-type, td:first-of-type > div {
+  height: 200px;
+  width: 250px;
+}

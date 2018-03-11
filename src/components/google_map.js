@@ -4,7 +4,7 @@ class GoogleMap extends Component {
   // lifectcle method that component has been rendered to the screen
   componentDidMount() {
     // take a ref to an html node/element
-    new GoogleMap.maps.Map(this.refs.map, {
+    new google.maps.Map(this.refs.map, {
       // zoom from st to planet 12 is a glance of city
       zoom: 12,
       center: {
